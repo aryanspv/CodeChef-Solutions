@@ -1,0 +1,40 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    for(int i=0;i<n;++i){
+        int size;
+        cin>>size;
+        vector<int> people(size);
+        vector<int> place;
+        for(int j=0;j<size;++j){
+            cin>>people[j];
+        }
+        for(int k=0;k<size;++k){
+            if(people[k]==1){
+                place.push_back(k);
+            }
+        }
+        int flag=1;
+        for(int l=0;l<place.size()-1;++l){
+            int dist=place[l+1]-place[l];
+            if(dist<6){
+                flag=0;
+                break;
+            }
+        }
+        if(flag){
+            cout<<"YES"<<endl;
+        }
+        else{
+            cout<<"NO"<<endl;
+        }
+        
+    }
+}
